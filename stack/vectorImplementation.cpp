@@ -1,28 +1,25 @@
 #include <iostream>
-#include <stack>
+#include <vector>
 #include <algorithm>
 using namespace std;
 class Stack{
 public:
-    int arr[5];
-    int idx;
+    vector<int>st;  //it would never had the problem of stack overflow
     Stack(){
-        idx=-1;
     }
     void push(int val){
-        if(idx==sizeof(arr)/sizeof(arr[0])-1) cout<<"Stack Overflow";
-        arr[++idx]=val;
+        st.push_back(val);
     }
     void pop(){
-        if(idx==-1) cout<<"Stack Underflow!"<<endl;
-        idx--;
+        if(st.size()==0) cout<<"Stack Underflow!"<<endl;
+        st.pop_back();
     }
     int size(){
-        return (idx+1);
+        return st.size();
     }
     int top(){
-        if(idx==-1) cout<<"Stack is Empty!"<<endl;
-        return arr[idx];
+        if(st.size()==0) cout<<"Stack is Empty!"<<endl;
+        return st[st.size()-1];
     }
 };
 int main(){
@@ -40,5 +37,4 @@ int main(){
     st.push(21);
     st.push(21);
     cout<<st.size()<<endl;
-    st.push(21); //Stack Overflow
 }

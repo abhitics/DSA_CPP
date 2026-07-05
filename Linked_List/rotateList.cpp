@@ -6,7 +6,7 @@ using namespace std;
 
     APPROACH:
     ----------
-    1. Find length of list (n)
+    1. Find length of list (n)s
     2. Store tail node
     3. Reduce rotations:
             k = k % n
